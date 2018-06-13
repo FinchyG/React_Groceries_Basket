@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Quiz from './Quiz';
+import './index.css';
+import Groceries_Store from './Groceries_Store';
 
-ReactDOM.render(<Quiz />, document.getElementById('root'));
+ReactDOM.render(<Groceries_Store />, document.getElementById('root'));
