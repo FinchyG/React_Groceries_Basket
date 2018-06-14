@@ -1,6 +1,6 @@
 import React from 'react';
 import {Store_Title} from './Store_Title';
-import Select from './Select';
+import Select_Component from './Select_Component';
 
 export default class Groceries_Store extends React.Component {
 
@@ -12,7 +12,7 @@ export default class Groceries_Store extends React.Component {
         return (
             <div>
                 <Store_Title />
-                <Select />
+                <Select_Component />
             </div>
         );
     }
