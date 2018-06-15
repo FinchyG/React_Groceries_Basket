@@ -1,14 +1,16 @@
 import React from 'react';
 
-export default Fruits_Category extends React.Component {
-
-    constructor(props){
-        super(props);
-    }
+export default class Fruits_Category extends React.Component {
+   
 
     render() {
-        return (
-            <p>Fruits</p>;
-        )
+        if(this.props.fruits_show === "true") {
+            return (
+                <div id="available_fruits">
+                    <p>Fruits</p>
+                </div>
+            );
+        }
+        <p></p>
     }
 }
