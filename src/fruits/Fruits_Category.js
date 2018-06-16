@@ -11,6 +11,6 @@ export default class Fruits_Category extends React.Component {
                 </div>
             );
         }
-        <p></p>
+        
     }
 }

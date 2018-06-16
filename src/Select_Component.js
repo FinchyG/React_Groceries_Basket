@@ -9,7 +9,7 @@ export default class Select_Component extends React.Component {
         super(props);
         
         this.state = {
-            fruits_show: "false",
+            fruits_show: false,
             vegetables_show: false,
             breads_show: false,
             meats_show: false
@@ -22,10 +22,11 @@ export default class Select_Component extends React.Component {
     show_food_category() {
 
         const selected = document.getElementById("food_categories").value;
-        
+
         if(selected === "fruits") {
-            this.setState({fruits_show: "true"});
+            this.state.fruits_show = this.state.fruits_show === false ? true : false;
         }
+                
     }
 
     render() {
