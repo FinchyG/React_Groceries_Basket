@@ -70,6 +70,7 @@ button {
     color: rgb(81, 38, 20);
     background: rgb(26, 130, 32);
     border: 0.1em ridge rgb(81, 38, 20);
+    margin: 0.2em;
     padding: 0.2em;
     cursor: pointer;
 }
@@ -104,29 +105,11 @@ button {
     background: rgb(26, 130, 32);
     border: 0.1em ridge rgb(81, 38, 20);
     margin-right: 4em;
+    margin-top: -25em;
     padding-left: 0.2em; 
 }
 
-#available_fruits {
-    display: none;
-    width: 60%;
-    margin-left: 6em;
-}
-
-#available_vegetables {
-    display: none;
-    width: 60%;
-    margin-left: 6em;
-}
-
-#available_breads {
-    display: none;
-    width: 60%;
-    margin-left: 6em;
-}
-
-#available_meats {
-    display: none;
+#available_foodtypes {
     width: 60%;
     margin-left: 6em;
 }

@@ -11,7 +11,7 @@ export default class Fruits_Category extends React.Component {
 
         if(fruits_show === "true") {
             return (
-                <div>
+                <div id="available_foodtypes">
                     <Bananaas />
                     <Oranges />
                     <Apples />

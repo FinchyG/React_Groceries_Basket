@@ -1,6 +1,7 @@
 import React from 'react';
 import {Store_Title} from './Store_Title';
 import Select_Component from './Select_Component';
+import Selected_Items from './Selected_Items';
 
 export default class Groceries_Store extends React.Component {
 
@@ -13,6 +14,7 @@ export default class Groceries_Store extends React.Component {
             <div>
                 <Store_Title />
                 <Select_Component />
+                <Selected_Items />
             </div>
         );
     }
