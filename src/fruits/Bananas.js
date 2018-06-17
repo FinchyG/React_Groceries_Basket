@@ -11,17 +11,18 @@ export default class Bananas extends React.Component {
             add_to_basket: true
         }
 
-        this.add_bananas_to_basket = this.add_bananas_to_basket.bind(this);
+        this.add_to_basket = this.add_to_basket.bind(this);
         this.quantity_plus_one = this.quantity_plus_one.bind(this);
+        this.remove_from_basket = this.remove_from_basket.bind(this);
 
     }
 
-    add_bananas_to_basket() {
+    add_to_basket() {
 
         if(this.state.add_to_basket === true) {
 
-            let banana_quantity = this.state.quantity += 1;
-            this.setState((quantity) => ({quantity: banana_quantity}));
+            let item_quantity = this.state.quantity += 1;
+            this.setState((quantity) => ({quantity: item_quantity}));
 
             let total_price = (this.state.quantity * this.state.price).toFixed(2);
             
@@ -40,12 +41,29 @@ export default class Bananas extends React.Component {
 
         if(this.state.quantity >= 1) {
 
-            let banana_quantity = this.state.quantity += 1;
-            this.setState((quantity) => ({quantity: banana_quantity}));
+            let item_quantity = this.state.quantity += 1;
+            this.setState((quantity) => ({quantity: item_quantity}));
             let total_price = (this.state.quantity * this.state.price).toFixed(2);
             document.getElementById("banana_li").innerHTML = this.state.name + " " + this.state.quantity + " " + "£" + total_price;
         }
         
+    }
+
+    remove_from_basket() {
+
+        if(this.state.quantity >= 1) {
+
+            this.setState((quantity) => ({quantity: 0}));
+            console.log(this.state.quantity);
+
+            var li = document.getElementById("banana_li");
+            var ul = document.getElementById("basket");
+            ul.removeChild(li);
+
+            this.setState((add_to_basket) => ({add_to_basket: true}));
+        }/*
+    banana_quantity_display()
+    total_bill_amount();*/
     }
 
     render() {
@@ -53,8 +71,9 @@ export default class Bananas extends React.Component {
         return (
             <div className="foodtype">
                 <h4>Banana</h4>
-                <button onClick={this.add_bananas_to_basket}>Add to Basket</button>
+                <button onClick={this.add_to_basket}>Add to Basket</button>
                 <button onClick={this.quantity_plus_one}>+</button>
+                <button onClick={this.remove_from_basket}>Remove from Basket</button>
             </div>
         )
         
