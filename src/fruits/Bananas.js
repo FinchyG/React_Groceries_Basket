@@ -90,6 +90,7 @@ export default class Bananas extends React.Component {
                 <h4>Banana</h4>
                 <button onClick={this.add_to_basket}>Add to Basket</button>
                 <button onClick={this.quantity_plus_one}>+</button>
+                <p class="quantity_display">{this.state.quantity}</p>
                 <button onClick={this.quantity_minus_one}>-</button>
                 <button onClick={this.remove_from_basket}>Remove from Basket</button>
             </div>
