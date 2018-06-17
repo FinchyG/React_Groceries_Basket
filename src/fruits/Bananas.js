@@ -1,17 +1,46 @@
 import React from 'react';
 
 export default class Bananas extends React.Component {
-   
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: "Bananas",
+            quantity: 0,
+            price: 0.20,
+            add_to_basket: true
+        }
+
+        this.add_bananas_to_basket = this.add_bananas_to_basket.bind(this);
+
+    }
+
+    add_bananas_to_basket() {
+
+        if(this.state.add_to_basket === true) {
+
+            let banana_quantity = this.state.quantity += 1;
+            this.setState((quantity) => ({quantity: banana_quantity}));
+
+            let total_price = (this.state.quantity * this.state.price).toFixed(2);
+            
+            let li = document.createElement("li");
+            li.setAttribute("id", "banana_li");
+            let ul = document.getElementById("basket");
+            li.appendChild(document.createTextNode(this.state.name + " " + this.state.quantity + " " + "£" + total_price));
+            ul.appendChild(li);
+        }
+        
+        this.setState((add_to_basket) => ({add_to_basket: false}));
+    
+    }
+
     render() {
 
         return (
             <div className="foodtype">
                 <h4>Banana</h4>
-                <button onclick="add_bananas_to_basket()">Add to Basket</button>
-                <button onclick="quantity_minus_one_banana()">-</button>
-                <p className="quantity_display" id="banana_quantity_display">0</p>
-                <button onclick="quantity_plus_one_banana()">+</button>
-                <button onclick="remove_bananas_from_basket()">Remove from Basket</button>
+                <button onClick={this.add_bananas_to_basket}>Add to Basket</button>
             </div>
         )
         
