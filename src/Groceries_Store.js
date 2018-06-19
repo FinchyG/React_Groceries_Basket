@@ -13,8 +13,8 @@ export default class Groceries_Store extends React.Component {
         return (
             <div>
                 <Store_Title />
-                <Select_Component />
                 <Selected_Items />
+                <Select_Component />
             </div>
         );
     }

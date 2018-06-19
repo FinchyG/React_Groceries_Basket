@@ -15,6 +15,7 @@ export default class Bananas extends React.Component {
         this.quantity_plus_one = this.quantity_plus_one.bind(this);
         this.quantity_minus_one = this.quantity_minus_one.bind(this);
         this.remove_from_basket = this.remove_from_basket.bind(this);
+        this.total_groceries_bill = this.total_groceries_bill.bind(this);
 
     }
 
@@ -35,6 +36,7 @@ export default class Bananas extends React.Component {
         }
         
         this.setState((add_to_basket) => ({add_to_basket: false}));
+        this.total_groceries_bill()
     
     }
 
@@ -47,6 +49,8 @@ export default class Bananas extends React.Component {
             let total_price = (this.state.quantity * this.state.price).toFixed(2);
             document.getElementById("banana_li").innerHTML = this.state.name + " " + this.state.quantity + " " + "£" + total_price;
         }
+
+        this.total_groceries_bill()
         
     }
 
@@ -65,6 +69,8 @@ export default class Bananas extends React.Component {
             this.remove_from_basket();
         }
 
+        this.total_groceries_bill()
+
     }
 
     remove_from_basket() {
@@ -81,6 +87,22 @@ export default class Bananas extends React.Component {
             this.setState((add_to_basket) => ({add_to_basket: true}));
         }
 
+        this.total_groceries_bill()
+
+    }
+
+    total_groceries_bill() {
+
+        let total_bill_display = document.getElementById("total_bill").innerHTML;
+        let pound_symbol = /(£)/;
+        let total_bill_formatted = total_bill_display.replace(pound_symbol,"");
+        let total_bill_number = parseInt(total_bill_formatted);
+        let total_price = this.state.quantity * this.state.price;
+        let final_total_bill = "£" + ((total_bill_number + total_price).toFixed(2));
+        
+        let groceries_total_bill = document.getElementById("total_bill");
+        this.groceries_total_bill.innerHTML = final_total_bill;
+
     }
 
     render() {
@@ -93,6 +115,7 @@ export default class Bananas extends React.Component {
                 <p class="quantity_display">{this.state.quantity}</p>
                 <button onClick={this.quantity_minus_one}>-</button>
                 <button onClick={this.remove_from_basket}>Remove from Basket</button>
+                <button onClick={this.total_groceries_bill}>bill</button>
             </div>
         )
         

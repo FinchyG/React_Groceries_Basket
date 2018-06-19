@@ -15,7 +15,7 @@ export default class Selected_Items extends React.Component {
 
                 <ul id="basket"></ul>
 
-                <p>Total:<span id="total_bill"> £0.00</span></p>
+                <p>Total: £<span id="total_bill">0.00</span></p>
 
             </div>
 
