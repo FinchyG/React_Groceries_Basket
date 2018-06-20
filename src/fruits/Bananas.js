@@ -15,7 +15,7 @@ export default class Bananas extends React.Component {
         this.quantity_plus_one = this.quantity_plus_one.bind(this);
         this.quantity_minus_one = this.quantity_minus_one.bind(this);
         this.remove_from_basket = this.remove_from_basket.bind(this);
-        this.total_groceries_bill = this.total_groceries_bill.bind(this);
+        this.add_to_total_groceries_bill = this.total_groceries_bill.bind(this);
 
     }
 
@@ -36,7 +36,7 @@ export default class Bananas extends React.Component {
         }
         
         this.setState((add_to_basket) => ({add_to_basket: false}));
-        this.total_groceries_bill()
+        this.add_to_total_groceries_bill()
     
     }
 
@@ -50,7 +50,7 @@ export default class Bananas extends React.Component {
             document.getElementById("banana_li").innerHTML = this.state.name + " " + this.state.quantity + " " + "£" + total_price;
         }
 
-        this.total_groceries_bill()
+        this.add_to_total_groceries_bill()
         
     }
 
@@ -91,18 +91,17 @@ export default class Bananas extends React.Component {
 
     }
 
-    total_groceries_bill() {
+    add_to_total_groceries_bill() {
 
-        let total_bill_display = document.getElementById("total_bill").innerHTML;
-        let pound_symbol = /(£)/;
-        let total_bill_formatted = total_bill_display.replace(pound_symbol,"");
-        let total_bill_number = parseInt(total_bill_formatted);
-        let total_price = this.state.quantity * this.state.price;
-        let final_total_bill = "£" + ((total_bill_number + total_price).toFixed(2));
+        let extra_item = this.state.price;
         
-        let groceries_total_bill = document.getElementById("total_bill");
-        this.groceries_total_bill.innerHTML = final_total_bill;
-
+        let cur_total_bill = document.getElementById("total_bill").innerHTML;
+        let cur_total_bill_num = parseFloat(cur_total_bill);
+        let new_total_bill = cur_total_bill_num + extra_item;
+        let new_total_bill_2dp = new_total_bill.toFixed(2); 
+        
+        document.getElementById("total_bill").innerHTML = new_total_bill_2dp;
+    
     }
 
     render() {
