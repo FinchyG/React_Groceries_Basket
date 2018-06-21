@@ -15,7 +15,8 @@ export default class Bananas extends React.Component {
         this.quantity_plus_one = this.quantity_plus_one.bind(this);
         this.quantity_minus_one = this.quantity_minus_one.bind(this);
         this.remove_from_basket = this.remove_from_basket.bind(this);
-        this.add_to_total_groceries_bill = this.total_groceries_bill.bind(this);
+        this.increase_total_groceries_bill = this.increase_total_groceries_bill.bind(this);
+        this.decrease_total_groceries_bill = this.decrease_total_groceries_bill.bind(this);
 
     }
 
@@ -36,7 +37,7 @@ export default class Bananas extends React.Component {
         }
         
         this.setState((add_to_basket) => ({add_to_basket: false}));
-        this.add_to_total_groceries_bill()
+        this.increase_total_groceries_bill();
     
     }
 
@@ -50,7 +51,7 @@ export default class Bananas extends React.Component {
             document.getElementById("banana_li").innerHTML = this.state.name + " " + this.state.quantity + " " + "£" + total_price;
         }
 
-        this.add_to_total_groceries_bill()
+        this.increase_total_groceries_bill();
         
     }
 
@@ -69,7 +70,7 @@ export default class Bananas extends React.Component {
             this.remove_from_basket();
         }
 
-        this.total_groceries_bill()
+        this.decrease_total_groceries_bill();
 
     }
 
@@ -87,17 +88,34 @@ export default class Bananas extends React.Component {
             this.setState((add_to_basket) => ({add_to_basket: true}));
         }
 
-        this.total_groceries_bill()
+        if(this.state.quantity === 0) {
+
+            this.decrease_total_groceries_bill();
+
+        }
 
     }
 
-    add_to_total_groceries_bill() {
+    increase_total_groceries_bill() {
 
         let extra_item = this.state.price;
         
         let cur_total_bill = document.getElementById("total_bill").innerHTML;
         let cur_total_bill_num = parseFloat(cur_total_bill);
         let new_total_bill = cur_total_bill_num + extra_item;
+        let new_total_bill_2dp = new_total_bill.toFixed(2); 
+        
+        document.getElementById("total_bill").innerHTML = new_total_bill_2dp;
+    
+    }
+
+    decrease_total_groceries_bill() {
+
+        let removed_item = this.state.price;
+        
+        let cur_total_bill = document.getElementById("total_bill").innerHTML;
+        let cur_total_bill_num = parseFloat(cur_total_bill);
+        let new_total_bill = cur_total_bill_num - removed_item;
         let new_total_bill_2dp = new_total_bill.toFixed(2); 
         
         document.getElementById("total_bill").innerHTML = new_total_bill_2dp;
