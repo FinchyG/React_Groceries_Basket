@@ -3,7 +3,7 @@ import Bananaas from './Bananas';
 import Oranges from './Oranges';
 import Apples from './Apples';
 
-export default class Fruits_Category extends React.Component {
+export default class FruitsCategory extends React.Component {
    
     render() {
 

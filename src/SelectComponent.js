@@ -1,11 +1,11 @@
 import React from 'react';
-import {Select} from './Select';
-import Fruits_Category from './fruits/Fruits_Category';
-import Vegetables_Category from './vegetables/Vegetables_Category';
-import Breads_Category from './breads/Breads_Category';
-import Meats_Category from './meats/Meats_Category';
+import {SelectElement} from './SelectElement';
+import FruitsCategory from './fruits/FruitsCategory';
+import VegetablesCategory from './vegetables/VegetablesCategory';
+import BreadsCategory from './breads/BreadsCategory';
+import MeatsCategory from './meats/MeatsCategory';
 
-export default class Select_Component extends React.Component {
+export default class SelectComponent extends React.Component {
 
     constructor(props) {
 
@@ -62,11 +62,11 @@ export default class Select_Component extends React.Component {
     render() {
         return (
             <div>
-                <Select onChange={this.show_food_category} />
-                <Fruits_Category fruits_show={this.state.fruits_show} />
-                <Vegetables_Category vegetables_show={this.state.vegetables_show} />
-                <Breads_Category breads_show={this.state.breads_show} />
-                <Meats_Category meats_show={this.state.meats_show} />
+                <SelectElement onChange={this.show_food_category} />
+                <FruitsCategory fruits_show={this.state.fruits_show} />
+                <VegetablesCategory vegetables_show={this.state.vegetables_show} />
+                <BreadsCategory breads_show={this.state.breads_show} />
+                <MeatsCategory meats_show={this.state.meats_show} />
             </div>
         )
     }

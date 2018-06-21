@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Selected_Items extends React.Component {
+export default class SelectedItems extends React.Component {
 
     render() {
         return (
@@ -14,8 +14,6 @@ export default class Selected_Items extends React.Component {
                 <span className="column_header">   Price</span>
 
                 <ul id="basket"></ul>
-
-                <p>Total: £<span id="total_bill">0.00</span></p>
 
             </div>
 

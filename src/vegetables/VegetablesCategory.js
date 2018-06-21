@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Vegetables_Category extends React.Component {
+export default class VegetablesCategory extends React.Component {
    
     render() {
 

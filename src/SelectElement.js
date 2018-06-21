@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Select = (props) => {
+export const SelectElement = (props) => {
 
     return (
         <div>

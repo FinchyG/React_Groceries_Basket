@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Meats_Category extends React.Component {
+export default class MeatsCategory extends React.Component {
    
     render() {
 
