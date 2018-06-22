@@ -1,4 +1,9 @@
 import React from 'react';
+import {PlusButton} from '../buttons/PlusButton';
+import {AddToBasketButton} from '../buttons/AddToBasketButton';
+import {MinusButton} from '../buttons/MinusButton';
+import {RemoveFromBasketButton} from '../buttons/RemoveFromBasketButton';
+import {QuantityBox} from '../buttons/QuantityBox';
 
 export default class Bananas extends React.Component {
 
@@ -24,15 +29,16 @@ export default class Bananas extends React.Component {
 
         if(this.state.add_to_basket === true) {
 
-            let item_quantity = this.state.quantity += 1;
-            this.setState((quantity) => ({quantity: item_quantity}));
+            let item_quantity = this.state.quantity;
+            let item_quantity_plus_one = item_quantity + 1;
+            this.setState((quantity) => ({quantity: item_quantity_plus_one}));
 
-            let total_price = (this.state.quantity * this.state.price).toFixed(2);
+            let total_price = (item_quantity_plus_one * this.state.price).toFixed(2);
             
             let li = document.createElement("li");
             li.setAttribute("id", "banana_li");
             let ul = document.getElementById("basket");
-            li.appendChild(document.createTextNode(this.state.name + " " + this.state.quantity + " " + "£" + total_price));
+            li.appendChild(document.createTextNode(this.state.name + " " + item_quantity_plus_one + " " + "£" + total_price));
             ul.appendChild(li);
         
         }
@@ -45,10 +51,11 @@ export default class Bananas extends React.Component {
 
         if(this.state.quantity >= 1) {
 
-            let item_quantity = this.state.quantity += 1;
-            this.setState((quantity) => ({quantity: item_quantity}));
-            let total_price = (this.state.quantity * this.state.price).toFixed(2);
-            document.getElementById("banana_li").innerHTML = this.state.name + " " + this.state.quantity + " " + "£" + total_price;
+            let item_quantity = this.state.quantity;
+            let item_quantity_plus_one = item_quantity + 1;
+            this.setState((quantity) => ({quantity: item_quantity_plus_one}));
+            let total_price = (item_quantity_plus_one * this.state.price).toFixed(2);
+            document.getElementById("banana_li").innerHTML = this.state.name + " " + item_quantity_plus_one + " " + "£" + total_price;
         
         }
 
@@ -97,11 +104,11 @@ export default class Bananas extends React.Component {
         return (
             <div className="foodtype">
                 <h4>Banana</h4>
-                <button onClick={this.add_to_basket}>Add to Basket</button>
-                <button onClick={this.quantity_plus_one}>+</button>
-                <p class="quantity_display">{this.state.quantity}</p>
-                <button onClick={this.quantity_minus_one}>-</button>
-                <button onClick={this.remove_from_basket}>Remove from Basket</button>
+                <AddToBasketButton onClick={this.add_to_basket} />
+                <MinusButton onClick={this.quantity_minus_one} />
+                <QuantityBox quantity={this.state.quantity} />
+                <PlusButton onClick={this.quantity_plus_one} />
+                <RemoveFromBasketButton onClick={this.remove_from_basket} />
             </div>
         )
         
