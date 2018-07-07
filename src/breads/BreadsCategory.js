@@ -9,7 +9,7 @@ export default class BreadsCategory extends React.Component {
 
         let breads_show = this.props.breads_show;
 
-        if(breads_show === "true") {
+        if(breads_show === true) {
             return (
                 <div id="available_foodtypes">
                     <Baguettes />

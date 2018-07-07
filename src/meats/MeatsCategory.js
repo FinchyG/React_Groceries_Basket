@@ -9,7 +9,7 @@ export default class MeatssCategory extends React.Component {
 
         let meats_show = this.props.meats_show;
 
-        if(meats_show === "true") {
+        if(meats_show === true) {
             return (
                 <div id="available_foodtypes">
                     <Beef />

@@ -9,7 +9,7 @@ export default class FruitsCategory extends React.Component {
 
         let fruits_show = this.props.fruits_show;
 
-        if(fruits_show === "true") {
+        if(fruits_show === true) {
             return (
                 <div id="available_foodtypes">
                     <Bananaas />

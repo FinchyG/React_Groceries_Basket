@@ -12,10 +12,10 @@ export default class SelectComponent extends React.Component {
         super(props);
         
         this.state = {
-            fruits_show: "false",
-            vegetables_show: "false",
-            breads_show: "false",
-            meats_show: "false"
+            fruits_show: false,
+            vegetables_show: false,
+            breads_show: false,
+            meats_show: false
         }
 
         this.show_food_category = this.show_food_category.bind(this);
@@ -29,31 +29,31 @@ export default class SelectComponent extends React.Component {
         switch(selected) {
 
             case "fruits":
-                this.setState((fruits_show) => ({fruits_show: "true"}));
-                this.setState((vegetables_show) => ({vegetables_show: "false"}));
-                this.setState((breads_show) => ({breads_show: "false"}));
-                this.setState((meats_show) => ({meats_show: "false"}));
+                this.setState((fruits_show) => ({fruits_show: true}));
+                this.setState((vegetables_show) => ({vegetables_show: false}));
+                this.setState((breads_show) => ({breads_show: false}));
+                this.setState((meats_show) => ({meats_show: false}));
                 break;
 
             case "vegetables":
-                this.setState((vegetables_show) => ({vegetables_show: "true"}));
-                this.setState((fruits_show) => ({fruits_show: "false"}));
-                this.setState((breads_show) => ({breads_show: "false"}));
-                this.setState((meats_show) => ({meats_show: "false"}));
+                this.setState((vegetables_show) => ({vegetables_show: true}));
+                this.setState((fruits_show) => ({fruits_show: false}));
+                this.setState((breads_show) => ({breads_show: false}));
+                this.setState((meats_show) => ({meats_show: false}));
                 break;
 
             case "breads":
-                this.setState((breads_show) => ({breads_show: "true"}));
-                this.setState((fruits_show) => ({fruits_show: "false"}));
-                this.setState((vegetables_show) => ({vegetables_show: "false"}));
-                this.setState((meats_show) => ({meats_show: "false"}));
+                this.setState((breads_show) => ({breads_show: true}));
+                this.setState((fruits_show) => ({fruits_show: false}));
+                this.setState((vegetables_show) => ({vegetables_show: false}));
+                this.setState((meats_show) => ({meats_show: false}));
                 break; 
                 
             case "meats":
-                this.setState((meats_show) => ({meats_show: "true"}));
-                this.setState((fruits_show) => ({fruits_show: "false"}));
-                this.setState((vegetables_show) => ({vegetables_show: "false"}));
-                this.setState((breads_show) => ({breads_show: "false"}));
+                this.setState((meats_show) => ({meats_show: true}));
+                this.setState((fruits_show) => ({fruits_show: false}));
+                this.setState((vegetables_show) => ({vegetables_show: false}));
+                this.setState((breads_show) => ({breads_show: false}));
                 break;                
         }
                 
