@@ -4,4 +4,4 @@ export const StoreTitle = () => {
     
         return <h1>Grocerise Store</h1>;
     
-    }
+}
