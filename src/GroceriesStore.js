@@ -10,12 +10,19 @@ export default class GroceriesStore extends React.Component {
     }
 
     render() {
-        return (
-            <div>
-                <StoreTitle />
-                <SelectedItems />
-                <SelectComponent />
-            </div>
-        );
+
+      return (
+
+          <div>
+              
+              <StoreTitle />
+              <SelectComponent />
+              <SelectedItems />
+          
+          </div>
+
+      );
+    
     }
+
 }

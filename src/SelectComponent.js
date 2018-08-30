@@ -60,14 +60,22 @@ export default class SelectComponent extends React.Component {
     }
 
     render() {
+
         return (
-            <div>
+        
+            <section id="leftSection">
+            
+              <div>
+            
                 <SelectElement onChange={this.show_food_category} />
                 <FruitsCategory fruits_show={this.state.fruits_show} />
                 <VegetablesCategory vegetables_show={this.state.vegetables_show} />
                 <BreadsCategory breads_show={this.state.breads_show} />
                 <MeatsCategory meats_show={this.state.meats_show} />
-            </div>
+            
+                </div>
+            
+            </section>
         )
     }
 }
